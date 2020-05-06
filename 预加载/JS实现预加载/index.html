@@ -1,0 +1,59 @@
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <title></title>
+</head>
+
+<body>
+</body>
+</html>
+<script type="text/javascript">
+	/**
+	 * 可搭配web worker使用，只需把blob对象返回
+	 */
+	window.onload = () => {
+		<!-- 预加载图片资源 -->
+		// let req = new XMLHttpRequest();
+		// req.open('GET', 'https://cs7n.yeba.im/user/avatar/16284_1588237137401.jpg', true);
+		// req.responseType = "blob";
+		// req.onreadystatechange = () => {
+		//   if (req.readyState == 4) {
+		// 	var img = document.createElement("img");
+		// 	img.src = window.URL.createObjectURL(req.response);
+		// 	document.body.appendChild(img)
+		//   }
+		// }
+		// req.send(null)
+		
+		<!-- 预加载CSS -->
+		// let req = new XMLHttpRequest();
+		// req.open('GET', 'http://192.168.31.110:8000/cdn/color.css', true);
+		// req.responseType = "blob";
+		// req.onreadystatechange = () => {
+		//   if (req.readyState == 4) {
+		// 	var link = document.createElement("link");
+		// 	link.setAttribute("rel", "stylesheet");
+		// 	link.setAttribute("type", "text/css");  
+		// 	link.setAttribute("href", window.URL.createObjectURL(req.response));  
+		// 	document.head.appendChild(link)
+		//   }
+		// }
+		// req.send(null)
+		
+		<!-- 预加载JS -->
+		let req = new XMLHttpRequest();
+		req.open('GET', 'http://192.168.31.110:8000/cdn/log.js', true);
+		req.responseType = "blob";
+		req.onreadystatechange = () => {
+		  if (req.readyState == 4) {
+			var script = document.createElement("script");
+			script.setAttribute("src", window.URL.createObjectURL(req.response));  
+			document.head.appendChild(script)
+		  }
+		}
+		req.send(null)
+	}
+</script>
